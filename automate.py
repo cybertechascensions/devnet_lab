@@ -37,7 +37,7 @@ def getHostname():
     return hostname
 
 
-###########################################################
+##########################################################
 # This function will ask the user for their username they want to configure for the device
 def getUsername():
     username = str(input('Please enter the username you would like to use for this device:  '))
@@ -58,13 +58,13 @@ def getUsername():
 def getPassword():
     password = str(input('Please enter the password you would like to use for your username:  '))
     verify = str(input('Are you sure this is the password you would like to use? ("y" for yes or "n" for no):  '))
-    while verify != 'y' and verify != 'n:
+    while verify != 'y' and verify != 'n':
         print('This is an invalid input!')
         verify = str(input('Are you sure this is the password you would like to use? ("y" for yes or "n" for no):  '))
     while verify == 'n':
         password = str(input('Please enter the password you would like to use for your username:  '))
         verify = str(input('Are you sure this is the password you would like to use? ("y" for yes or "n" for no):  '))
-        while verify != 'y' and verify != 'n:
+        while verify != 'y' and verify != 'n':
             print('This is an invalid input!')
             verify = str(input('Are you sure this is the password you would like to use? ("y" for yes or "n" for no):  '))
     return password
