@@ -4,6 +4,7 @@ def main():
     hostname = ''
     username = ''
     password = ''
+    typeInterface = ''
     verify = ''
 
     # This function will get the hostname
