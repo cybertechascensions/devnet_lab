@@ -8,6 +8,7 @@ def main():
     verify = ''
     consolePassword = ''
     numBlade = 0
+    numModule = 0
 
     # This function will get the hostname
     hostname = getHostname()
@@ -24,10 +25,13 @@ def main():
     # This function will get the blade number
     numBlade = getNumBlade()
 
+    # This function will get the module number
+    numModule = getNumModule()
+
     # This function will get the console password
     consolePassword = getConsolePassword()
 
-    print(hostname,username,password,typeInterface,consolePassword,numBlade)
+    print(hostname,username,password,typeInterface,consolePassword,numBlade,numModule)
 ###########################################################
 # This function will ask for the hostname of the device
 def getHostname():
@@ -154,4 +158,46 @@ def getNumBlade():
                 return numBlade
         else:
             print()
+        print()
+#############################################################
+# This function will get the module number for the interface
+def getNumModule():
+    verify = str(input('Will this interface have a module number? ("y" for yes or "n" for no):  '))
+    while verify != 'y' and verify !='n':
+        print('This is an invalid input!')
+        verify = str(input('Will this interface have a module number? ("y"for yes or "n" for no):  '))
+    if verify =='y':
+        numModule = int(input('Please enter the module number for the interface:  '))
+        verify = str(input('Are you sure this is the correct module number? ("y" for yes or "n" for no):  '))
+        while verify != 'y' and verify != 'n':
+            print('This is an invalid input!')
+            verify = str(input('Are you sure this is the correct module number? ("y" for yes or "n" for no):  '))
+        while verify == 'n':
+            numModule = int(input('Please enter the module number for the interface:  '))
+            verify = str(input('Are you sure this is the correct module numeber? ("y" for yes or "n" for no):  '))
+            while verify != 'y' and verify != 'n':
+                print('This is an invalid input!')
+                verify = str(input('Are you sure this is the correct module number? ("y" for yes or "n" for no):  '))
+        return numModule
+    else:
+        verify = str(input('Are you sure there is no module number? ("y" for yes or "n" for no):  '))
+        while verify != 'y' and verify !='n':
+            print('This is an invalid input!')
+            verify = str(input('Are you sure there is no module number? ("y" for yes or "n" for no):  '))
+        if verify == 'n':
+            verify = str(input('Will this interface have a module number? ("y" for yes or "n" for no):  '))
+            while verify != 'y' and verify !='n':
+                print('This is an invalid input!')
+                verify = str(input('Will this interface have a module number? ("y"for yes or "n" for no):  '))
+            if verify == 'y':
+                numModule = int(input('Please enter the module number for the interface:  '))
+                verify = str(input('Are you sure this is the correct module number? ("y" for yes or "n" for no):  '))
+                while verify != 'y' and verify !='n':
+                    print('This is an invalid input!')
+                    verify = str(input('Are you sure this is the correct module numeber? ("y" for yes or "n" for no):  '))
+                return numModule
+        else:
+            print()
+        print()
+
 main()
