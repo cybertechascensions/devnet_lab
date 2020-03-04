@@ -19,7 +19,10 @@ def main():
     # This function will get the type of interface
     typeInterface = getTypeInterface()
 
-    print(hostname,username,password,typeInterface)
+    # This function will get the console password
+    consolePassword = getConsolePassword()
+
+    print(hostname,username,password,typeInterface,consolePassword)
 ###########################################################
 # This function will ask for the hostname of the device
 def getHostname():
@@ -90,5 +93,21 @@ def getTypeInterface():
             print('This is an invalid input!')
             verify = str(input('Are you sure this is the interface you want to configure? ("y" for yes or "n" for no):  '))
     return typeInterface
+
+###########################################################
+# This function will get the console line password that will be configured
+def getConsolePassword():
+    consolePassword = str(input('Please enter the console password you would like to configure:  '))
+    verify = str(input('Are you sure this is the password you want to configure? ("y" for yes or "n" for no):  '))
+    while verify != 'y' and verify != 'n':
+        print('This is an invalid input!')
+        verify = str(input('Are you sure this is the password you want to configure? ("y" for yes or "n" for no):  '))
+    while verify == 'n':
+        consolePassword = str(input('Please enter the console password you would like to configure:  '))
+        verify = str(input('Are you sure this is the password you want to configure? ("y" for yes or "n" for no):  '))
+        while verify != 'y' and verify != 'no':
+            print('This is an invalid input!')
+            verify = str(input('Are you sure this is the password you want to configure? ("y" for yes or "n" for no):  '))
+    return consolePassword
 
 main()
