@@ -6,6 +6,8 @@ def main():
     password = ''
     typeInterface = ''
     verify = ''
+    consolePassword = ''
+    numBlade = 0
 
     # This function will get the hostname
     hostname = getHostname()
@@ -19,10 +21,13 @@ def main():
     # This function will get the type of interface
     typeInterface = getTypeInterface()
 
+    # This function will get the blade number
+    numBlade = getNumBlade()
+
     # This function will get the console password
     consolePassword = getConsolePassword()
 
-    print(hostname,username,password,typeInterface,consolePassword)
+    print(hostname,username,password,typeInterface,consolePassword,numBlade)
 ###########################################################
 # This function will ask for the hostname of the device
 def getHostname():
@@ -110,4 +115,43 @@ def getConsolePassword():
             verify = str(input('Are you sure this is the password you want to configure? ("y" for yes or "n" for no):  '))
     return consolePassword
 
+###########################################################
+# This function will get the blade number for the interface
+def getNumBlade():
+    verify = str(input('Will this interface have a blade number? ("y" for yes or "n" for no):  '))
+    while verify != 'y' and verify !='n':
+        print('This is an invalid input!')
+        verify = str(input('Will this interface have a blade number? ("y"for yes or "n" for no):  '))
+    if verify =='y':
+        numBlade = int(input('Please enter the blade number for the interface:  '))
+        verify = str(input('Are you sure this is the correct blade number? ("y" for yes or "n" for no):  '))
+        while verify != 'y' and verify != 'n':
+            print('This is an invalid input!')
+            verify = str(input('Are you sure this is the correct blade number? ("y" for yes or "n" for no):  '))
+        while verify == 'n':
+            numBlade = int(input('Please enter the blade number for the interface:  '))
+            verify = str(input('Are you sure this is the correct blade numeber? ("y" for yes or "n" for no):  '))
+            while verify != 'y' and verify != 'n':
+                print('This is an invalid input!')
+                verify = str(input('Are you sure this is the correct blade number? ("y" for yes or "n" for no):  '))
+        return numBlade
+    else:
+        verify = str(input('Are you sure there is no blade number? ("y" for yes or "n" for no):  '))
+        while verify != 'y' and verify !='n':
+            print('This is an invalid input!')
+            verify = str(input('Are you sure there is no blade number? ("y" for yes or "n" for no):  '))
+        if verify == 'n':
+            verify = str(input('Will this interface have a blade number? ("y" for yes or "n" for no):  '))
+            while verify != 'y' and verify !='n':
+                print('This is an invalid input!')
+                verify = str(input('Will this interface have a blade number? ("y"for yes or "n" for no):  '))
+            if verify == 'y':
+                numBlade = int(input('Please enter the blade number for the interface:  '))
+                verify = str(input('Are you sure this is the correct blade number? ("y" for yes or "n" for no):  '))
+                while verify != 'y' and verify !='n':
+                    print('This is an invalid input!')
+                    verify = str(input('Are you sure this is the correct blade numeber? ("y" for yes or "n" for no):  '))
+                return numBlade
+        else:
+            print()
 main()
