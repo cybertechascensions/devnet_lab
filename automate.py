@@ -270,4 +270,26 @@ def getNumInterface():
             print()
         print()
 
+###########################################################################
+# This function will get the IP address for the interface being configured
+def getIPAddress():
+    ipAddress = str(input('Please enter the IP address being configured onto the interface:  '))
+    verify = str(input('Are you sure this is the IP address to be applied to the interface? ("y" for yes or "n" for no):  '))
+    while verify != 'y' and verify != 'n':
+        print('This is an invalid input!')
+        verify = str(input('Are you sure this is the IP address to be applied to the interface? ("y" for yes or "n" for no):  '))
+    while verify == 'n':
+        ipAddress = str(input('Please enter the IP address being configured onto the interface:  '))
+        verify = str(input('Are you sure this is the IP address to be applied to the interface? ("y" for yes or "n" for no):  '))
+        while verify != 'y' and verify != 'n':
+            print('This is an invalid input!')
+            verify = str(input('Are you sure this is the IP address to be applied to the interface? ("y" for yes or "n" for no):  '))
+        if verify == 'y':
+            print()
+            print()
+            return ipAddress
+        else:
+            print()
+            print()
+
 main()
