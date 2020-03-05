@@ -9,6 +9,7 @@ def main():
     consolePassword = ''
     numBlade = 0
     numModule = 0
+    ipAddress = ''
 
     # This function will get the hostname
     hostname = getHostname()
@@ -31,10 +32,13 @@ def main():
     # This function will get the interface number
     numInterface = getNumInterface()
 
+    # This function will get the IP address for the interface
+    ipAddress = getIPAddress()
+
     # This function will get the console password
     consolePassword = getConsolePassword()
 
-    print(hostname,username,password,typeInterface,numBlade,numModule,numInterface,consolePassword)
+    print(hostname,username,password,typeInterface,numBlade,numModule,numInterface,ipAddress,consolePassword)
 ###########################################################
 # This function will ask for the hostname of the device
 def getHostname():
@@ -284,12 +288,7 @@ def getIPAddress():
         while verify != 'y' and verify != 'n':
             print('This is an invalid input!')
             verify = str(input('Are you sure this is the IP address to be applied to the interface? ("y" for yes or "n" for no):  '))
-        if verify == 'y':
-            print()
-            print()
-            return ipAddress
-        else:
-            print()
-            print()
-
+    print()
+    print()
+    return ipAddress
 main()
