@@ -39,6 +39,7 @@ def main():
     consolePassword = getConsolePassword()
 
     print(hostname,username,password,typeInterface,numBlade,numModule,numInterface,ipAddress,consolePassword)
+
 ###########################################################
 # This function will ask for the hostname of the device
 def getHostname():
