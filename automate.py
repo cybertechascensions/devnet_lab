@@ -337,17 +337,37 @@ def getNumInterface():
         print()
         return numInterface
     else:
-        verify = str(input('Are you sure there is no interface number? ("y" for yes or "n" for no):  '))
+        verify = str(input('Are you sure there is no blade number? ("y" for yes or "n" for no):  '))
+        verify = verify.lower()
         while verify != 'y' and verify !='n':
             print('This is an invalid input!')
-            verify = str(input('Are you sure there is no interface number? ("y" for yes or "n" for no):  '))
+            verify = str(input('Are you sure there is no blade number? ("y" for yes or "n" for no):  '))
+            verify = verify.lower()
         if verify == 'n':
-            verify = str(input('Will this interface have an interface number? ("y" for yes or "n" for no):  '))
+            verify = str(input('Does this interface have a blade number? ("y" for yes or "n" for no):  '))
+            verify = verify.lower()
             while verify != 'y' and verify !='n':
                 print('This is an invalid input!')
-                verify = str(input('Will this interface have an interface number? ("y"for yes or "n" for no):  '))
+                verify = str(input('Does this interface have a blade number? ("y"for yes or "n" for no):  '))
+                verify = verify.lower()
             if verify == 'y':
-                numInterface = int(input('Please enter the interface number for the interface:  '))
+                numBlade = int(input('Please enter the blade number for the interface:  '))
+                verify = str(input('Are you sure this is the correct blade number? ("y" for yes or "n" for no):  '))
+                verify = verify.lower()
+                while verify != 'y' and verify != 'n':
+                    print('This is an invalid input!')
+                    verify = str(input('Are you sure this is the correct blade number? ("y" for yes or "n" for no):  '))
+                    verify = verify.lowwer()
+                while verify == 'n':
+                    print()
+                    print()
+                    numBlade = int(input('Please enter the blade number for the interface:  '))
+                    verify = str(input('Are you sure this is the correct blade number? ("y" for yes or "n" no no):  '))
+                    verify = verify.lower
+                    while verify != 'y' and verify != 'n':
+                        print('This is an invalid input!')
+                        verify = str(input('Are you sure this is the correct blade number? ("y" for yes or "n" for no):  '))
+                        verfiy = verify.lower()
                 print()
                 print()
                 return numInterface
@@ -408,6 +428,6 @@ def getTotalInterfaces():
         print()
         totalInterfaces = int(input('How many interfaces will be configured?  '))
         verify = str(input('Are you sure this is the total inerfaces you will configure? ("y" for yes or "n" for no):  '))
-        
+
 
 main()
