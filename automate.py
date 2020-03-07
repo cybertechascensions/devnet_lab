@@ -69,7 +69,7 @@ def getHostname():
     print()
     return hostname
 
-##########################################################
+############################################################################################
 # This function will ask the user for their username they want to configure for the device
 def getUsername():
     username = str(input('Please enter the username you would like to use for this device:  '))
@@ -93,7 +93,7 @@ def getUsername():
     print()
     return username
 
-##########################################################
+####################################################################################
 # This function will ask the user for the password being used for their username
 def getPassword():
     password = str(input('Please enter the password you would like to use for your username:  '))
@@ -117,7 +117,7 @@ def getPassword():
     print()
     return password
 
-##########################################################
+#####################################################################
 # This function will get the interface that will be configured
 def getTypeInterface():
     typeInterface = str(input('Please enter the interface you would like to configure ("g" for GigabitEthernet, "f" for FastEthernet, "lo" for loopback, or "s" for serial):  '))
@@ -151,7 +151,7 @@ def getTypeInterface():
     print()
     return typeInterface
 
-###########################################################
+##############################################################################
 # This function will get the console line password that will be configured
 def getConsolePassword():
     consolePassword = str(input('Please enter the console password you would like to configure:  '))
@@ -175,7 +175,7 @@ def getConsolePassword():
     print()
     return consolePassword
 
-###########################################################
+######################################################################
 # This function will get the blade number for the interface
 def getNumBlade():
     verify = str(input('Does this interface have a blade number? ("y" for yes or "n" for no):  '))
@@ -243,7 +243,7 @@ def getNumBlade():
         else:
             print()
         print()
-#############################################################
+#######################################################################
 # This function will get the module number for the interface
 def getNumModule():
     verify = str(input('Does this interface have a module number? ("y" for yes or "n" for no):  '))
@@ -312,7 +312,7 @@ def getNumModule():
             print()
         print()
 
-###################################################################
+#####################################################################
 # This function will get the interface number to be configured
 def getNumInterface():
     verify = str(input('Will this interface have an interface number? ("y" for yes or "n" for no):  '))
@@ -355,7 +355,7 @@ def getNumInterface():
             print()
         print()
 
-###########################################################################
+#################################################################################
 # This function will get the IP address for the interface being configured
 def getIPAddress():
     ipAddress = str(input('Please enter the IP address being configured onto the interface:  '))
@@ -375,7 +375,7 @@ def getIPAddress():
     print()
     return ipAddress
 
-############################################################################
+################################################################################
 # This function will get the subnet mask for the interface being configured
 def getSubnetMask():
     subnetMask = str(input('Please enter the subnet mask being configured onto the interface:  '))
@@ -394,5 +394,20 @@ def getSubnetMask():
     print()
     print()
     return subnetMask
+
+###############################################################################
+# This function will get the total number of interfaces being configured
+def getTotalInterfaces():
+    totalInterfaces = int(input('How many interfaces will be configured?  '))
+    verify = str(input('Are you sure this is the total interfaces you will configure? ("y" for yes or "n" for no):  '))
+    while verify != 'y' and verify != 'n':
+        print('This is an invalid input!')
+        verify = str(input('Are you aure this is the total interfaces you will configure? ("y" for yes or "n" for no):  '))
+    while verify == 'n':
+        print()
+        print()
+        totalInterfaces = int(input('How many interfaces will be configured?  '))
+        verify = str(input('Are you sure this is the total inerfaces you will configure? ("y" for yes or "n" for no):  '))
+        
 
 main()
